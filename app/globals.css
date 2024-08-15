@@ -1,33 +1,66 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    .btns{
+        @apply w-auto hover:!backdrop-blur-lg  hover:bg-black/10 rounded-full px-5 py-2 transition-all duration-200
+    }
+
+    .upBut:hover > .upload{
+        margin-bottom: 8px;
+    } 
+
+    .text-shadow{
+        text-shadow: 0px 1px 3px white;
+    }
+    .active {
+    @apply bg-base-200 shadow-lg !text-black transition-all duration-300;
+    }
+
+    .activeIn{
+        @apply !flex !transition-all !duration-300
+    }
+
+
+    /* .container{
+        @apply mx-auto 
+    } */
+
+    #search-clear{
+        color: black !important;
+        background-color: red !important;
+    }
+    .decorationNone{
+        text-decoration: none !important;
+    }
+
+
+    /* Loader */
+
+    .loader {
+  box-sizing: border-box;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  animation: spin 1s linear infinite;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.loader:after, .loader:before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: spin 1s linear infinite;
+  transform-origin: 0px 100%;
+}
+.loader:before {
+  transform-origin: 0 50%;
+  background: black;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
+    
